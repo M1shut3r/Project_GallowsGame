@@ -97,8 +97,8 @@ int main(){
 		Stroka();
 		cout<<"Najmite ENTER dla prodoljenia"<<endl;
 	}
-	if(point!=0){
-		cout<<endl<<"/\\/\\/\\Congretulations You amazing /\\/\\/\\"; 
+	if(point!=-1){
+		cout<<"GOOOOOOOOOOOOOOOOOOOD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 	    getch();
 	}
 	else { 
