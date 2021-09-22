@@ -8,7 +8,7 @@ using namespace std;
 random_device rd;
 mt19937 mersenne(rd());
 
-int sum=1; // сколько строчек выведет  виселицы 
+int sum=0; // сколько строчек выведет  виселицы 
 string s,l;
 string copy_slovo;
 string slovo;
@@ -20,9 +20,8 @@ int Life(){
 	return 0;
 }
 
-int Gallow(int x){                     //вывод картинки
+int Gallow(){                     //вывод картинки
 	ifstream F("Lifes.txt");
-	
 			for(int i=0;i<=sum;i++){
 			getline(F,l);
 			cout<<l<<endl;
@@ -73,15 +72,17 @@ int main(){
     	cout<<"otgadannie bukvi na dani moment ";
 		Stroka();
 		cout<<endl;
+		if(point!=9)
+			Gallow();              //выводит картинку виселицы
+    	cout<<"\n\n\n";
     	cout<<"Vvedite bukvy : ";
+    	if(point != 0)
     	cin>>letter;                  //ввод рандомного номера слова
     	cout<<endl;
-    	Gallow(point);              //выводит картинку виселицы
-    	cout<<"\n\n\n";
     	copy_slovo=slovo;
     	a=0;
     	for(int i=0;i<s.length();i++){
-    		if(s[i]==letter){ 
+    		if(s[i]==letter){
 			    slovo[i]=letter;
 				a++;
 				b++;
@@ -98,11 +99,14 @@ int main(){
 		cout<<"Najmite ENTER dla prodoljenia"<<endl;
 	}
 	if(point!=-1){
-		cout<<"GOOOOOOOOOOOOOOOOOOOD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		system("cls");
+		cout<<"GOOOOOOOOOOOOOOOOOOOD YOY SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 	    getch();
 	}
-	else { 
-	cout<<endl<<"You Loose sry";
+	else {
+		system("cls");
+		Gallow();
+	cout<<endl<<"YOU LOOSE SRY";
 	getch();}
 	return 0;
 }
