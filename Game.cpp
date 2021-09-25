@@ -12,7 +12,9 @@ int sum=0; // сколько строчек выведет  виселицы
 string s,l;
 string copy_slovo;
 string slovo;
-int key, point=9,a=0;//point - жизни
+int point=9,a=0;//point - жизни
+
+ofstream D("Save.txt");
 
 
 int Life(){
@@ -32,7 +34,7 @@ int Gallow(){                     //вывод картинки
 int Word(){
 	ifstream F("All_Words.txt");
 	int a;
-	a=rd()%100;                   //вводим № слова из списка
+	a=rd()%1774;                   //вводим № слова из списка
 	for(int i=0;i<a;i++){
 		getline(F, s);
 	}
@@ -100,7 +102,7 @@ int main(){
 	}
 	if(point!=-1){
 		system("cls");
-		cout<<"GOOOOOOOOOOOOOOOOOOOD YOY SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!! YOY SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
 	    getch();
 	}
 	else {
