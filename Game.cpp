@@ -84,11 +84,12 @@ int main(){
     	copy_slovo=slovo;
     	a=0;
     	for(int i=0;i<s.length();i++){
-    		if(s[i]==letter){
+    		if(s[i]==letter && slovo[i]!=letter){
 			    slovo[i]=letter;
 				a++;
 				b++;
 			}
+			if(slovo[i]==letter) a++;
 		}
 			if(a==0){
 			    point--;
