@@ -4,17 +4,17 @@
 #include<conio.h>
 #include <random>
 using namespace std;
-
 random_device rd;
 mt19937 mersenne(rd());
 
+char letter;                     //letter - буква
+int b=0;                         //Делается +1 за каждую правильную букву
 int sum=0; // сколько строчек выведет  виселицы 
-string s,l;
+string s,s1,l,Sum,Point,bb;
 string copy_slovo;
-string slovo;
+string slovo,slovo1;
 int point=9,a=0;//point - жизни
 
-ofstream D("Save.txt");
 
 
 int Life(){
@@ -50,10 +50,17 @@ void Stroka(){
 
 
 int main(){
-	int b=0;                         //Делается +1 за каждую правильную букву
+	
+	ifstream SLOVO1 ("slovo.txt");
+	getline(SLOVO1,slovo);
+	ifstream S1 ("s.txt");
+	getline(S1,s);
+	
+	if(slovo==s){
+	point=9;
+	ofstream D("s.txt");
 	Word();
 	
-	char letter;                     //letter - буква
 	
 	for(int i=0;i<s.length();i++){   // выделяем массив под слово
 		slovo[i]='_';
@@ -66,9 +73,23 @@ int main(){
 	cout<<"Slovo: "<<s<<"\n"<<"-----------------------------";
 	cout<<endl;
 	cout<<"Najmite ENTER dla prodoljenia";
+	D<<s; //Вывод СЛОВА
+	}
 	
-	
+	else{
+		cout<<"Ne zakochenaia igra";
+    	ifstream SUM1("sum.txt");
+    	getline(SUM1,Sum);
+    	sum = atoi(Sum.c_str()); 
+    	ifstream POINT1("point.txt");
+    	getline(POINT1,Point);
+    	point =  atoi(Point.c_str()); 
+    	ifstream B1("b.txt");
+    	getline(B1,bb);
+    	b =  atoi(bb.c_str()); 
+	}
     while(point>=0 && b!=s.length()){
+    	
     	if(getch()) system("cls");
     	Life();
     	cout<<"otgadannie bukvi na dani moment ";
@@ -100,16 +121,41 @@ int main(){
 		 
 		Stroka();
 		cout<<"Najmite ENTER dla prodoljenia"<<endl;
+		
+		ofstream SLOVO("slovo.txt");
+    	SLOVO<<slovo.c_str();
+    	SLOVO.close();
+    	ofstream SUM("sum.txt");
+    	SUM<<sum;
+    	SUM.close();
+    	ofstream POINT("point.txt");
+    	POINT<<point;
+    	POINT.close();
+    	ofstream B("b.txt");
+    	B<<b;
+		B.close();
 	}
 	if(point!=-1){
 		system("cls");
-		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!! YOY SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!! YOU SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		ofstream SLOVO("slovo.txt");
+		SLOVO<<"";
+		ofstream D("s.txt");
+		D<<"";
+
 	    getch();
 	}
 	else {
 		system("cls");
 		Gallow();
-	cout<<endl<<"YOU LOOSE SRY";
-	getch();}
+	    cout<<endl<<"YOU LOOSE SRY";
+	    ofstream SLOVO("slovo.txt");
+		SLOVO<<"";
+		ofstream D("s.txt");
+		D<<"";
+	    
+	    getch();
+	}
+	
 	return 0;
 }
