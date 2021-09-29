@@ -148,7 +148,8 @@ int main(){
 	else {
 		system("cls");
 		Gallow();
-	    cout<<endl<<"YOU LOOSE SRY";
+	    cout<<endl<<"YOU LOOSE SRY"<<endl;
+	    cout<<"This Word - "<<s;
 	    ofstream SLOVO("slovo.txt");
 		SLOVO<<"";
 		ofstream D("s.txt");
