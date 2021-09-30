@@ -22,6 +22,15 @@ int Life(){
 	return 0;
 }
 
+int Win(){                     //вывод картинки при угадывании слова
+	ifstream F("WIN.txt");
+			for(int i=0;i<=13;i++){
+			getline(F,l);
+			cout<<l<<endl;
+		}
+	return 0;
+}
+
 int Gallow(){                     //вывод картинки
 	ifstream F("Lifes.txt");
 			for(int i=0;i<=sum;i++){
@@ -137,7 +146,8 @@ int main(){
 	}
 	if(point!=-1){
 		system("cls");
-		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!! YOU SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOU SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+		Win();
 		ofstream SLOVO("slovo.txt");
 		SLOVO<<"";
 		ofstream D("s.txt");
