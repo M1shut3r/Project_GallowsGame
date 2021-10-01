@@ -17,13 +17,13 @@ int point=9,a=0;//point - жизни
 
 int Again(){
 	int x;
-	cout<<"\n\n\n\n\n"<<"Nachat snova - lubaia chifra"<<endl;
-	cout<<"Zakonchit igry - 0"<<endl;
+	cout<<"\n\n\n\n\n"<<"----------------------------------------"<<endl<<"Nachat snova - lubaia chifra"<<endl;
+	cout<<"Zakonchit igry - 0"<<endl<<"----------------------------------------"<<endl;
 	cin>>x;
-	if(x>0) {  
-	G=1;
+	if(x>0) {
+	b=0;
 	system("cls");
-	cout<<"Nagmite ENTER";
+	
 	}
 	else G=0;
 	return 0;
@@ -177,25 +177,29 @@ int main(){
 		system("cls");
 		cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!YOU SAVE HIM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
 		Win();
+	
 		ofstream SLOVO("slovo.txt");
 		SLOVO<<"";
+		SLOVO.close();
 		ofstream D("s.txt");
 		D<<"";
+		D.close();
 		
 		Again();
 		
-	    getch();
 	}
 	else {
 		system("cls");
 		Gallow();
 	    cout<<endl<<"YOU LOOSE SRY"<<endl;
 	    cout<<"This Word - "<<s;
+	                            
 	    ofstream SLOVO("slovo.txt");
 		SLOVO<<"";
+		SLOVO.close();
 		ofstream D("s.txt");
 		D<<"";
-	    
+		D.close();
 	    Again();
 	    
 	    getch();
