@@ -8,14 +8,26 @@ random_device rd;
 mt19937 mersenne(rd());
 
 char letter;                     //letter - буква
-int b=0;                         //Делается +1 за каждую правильную букву
+int b=0,G=1;     //G -  пока не 0 игра повторяется               //Делается +1 за каждую правильную букву
 int sum=0; // сколько строчек выведет  виселицы 
 string s,s1,l,Sum,Point,bb;
 string copy_slovo;
 string slovo,slovo1;
 int point=9,a=0;//point - жизни
 
-
+int Again(){
+	int x;
+	cout<<"\n\n\n\n\n"<<"Nachat snova - lubaia chifra"<<endl;
+	cout<<"Zakonchit igry - 0"<<endl;
+	cin>>x;
+	if(x>0) {  
+	G=1;
+	system("cls");
+	cout<<"Nagmite ENTER";
+	}
+	else G=0;
+	return 0;
+}
 
 int Life(){
 	cout<<"Lifes - "<<point<<endl;
@@ -56,21 +68,7 @@ void Stroka(){
 	}
 	cout<<endl;
 }
-
-
-int main(){
-	
-	ifstream SLOVO1 ("slovo.txt");
-	getline(SLOVO1,slovo);
-	ifstream S1 ("s.txt");
-	getline(S1,s);
-	
-	if(slovo==s){
-	point=9;
-	ofstream D("s.txt");
-	Word();
-	
-	
+int New_game(){
 	for(int i=0;i<s.length();i++){   // выделяем массив под слово
 		slovo[i]='_';
 	}
@@ -82,11 +80,34 @@ int main(){
 	cout<<"Slovo: "<<s<<"\n"<<"-----------------------------";
 	cout<<endl;
 	cout<<"Najmite ENTER dla prodoljenia";
-	D<<s; //Вывод СЛОВА
+	return 0;
+}
+
+
+int main(){
+	int k;
+	while(G){
+	ifstream SLOVO1 ("slovo.txt");
+	getline(SLOVO1,slovo);
+	ifstream S1 ("s.txt");
+	getline(S1,s);
+	
+	if(slovo==s){
+	point=9;
+	ofstream D("s.txt");
+	Word();
+    New_game();
+    D<<s; //Вывод СЛОВА
 	}
 	
 	else{
-		cout<<"Ne zakochenaia igra";
+		int k;
+		cout<<"Ne zakochenaia igra :"<<endl;
+		cout<<"nachat novyu - 1"<<endl;
+		cout<<"prodoljit staryu - 2"<<endl;
+		cin>>k;
+
+		if(k==2){
     	ifstream SUM1("sum.txt");
     	getline(SUM1,Sum);
     	sum = atoi(Sum.c_str()); 
@@ -95,7 +116,15 @@ int main(){
     	point =  atoi(Point.c_str()); 
     	ifstream B1("b.txt");
     	getline(B1,bb);
-    	b =  atoi(bb.c_str()); 
+    	b =  atoi(bb.c_str());
+		}
+		else {
+			Word();
+			point=9;
+	        ofstream D("s.txt");
+	        New_game();
+	        D<<s; //Вывод СЛОВА
+		}
 	}
     while(point>=0 && b!=s.length()){
     	
@@ -152,7 +181,9 @@ int main(){
 		SLOVO<<"";
 		ofstream D("s.txt");
 		D<<"";
-
+		
+		Again();
+		
 	    getch();
 	}
 	else {
@@ -165,8 +196,10 @@ int main(){
 		ofstream D("s.txt");
 		D<<"";
 	    
+	    Again();
+	    
 	    getch();
 	}
-	
+}
 	return 0;
 }
