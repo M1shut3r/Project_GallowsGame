@@ -22,8 +22,6 @@ int Again(){
 	cin>>x;
 	if(x>0) {
 	b=0;
-	system("cls");
-	
 	}
 	else G=0;
 	return 0;
@@ -102,10 +100,11 @@ int main(){
 	
 	else{
 		int k;
-		cout<<"Ne zakochenaia igra :"<<endl;
-		cout<<"nachat novyu - 1"<<endl;
-		cout<<"prodoljit staryu - 2"<<endl;
+		cout<<"----------------------|"<<endl<<"Ne zakochenaia igra : |"<<endl;
+		cout<<"nachat novyu - 1      |"<<endl;
+		cout<<"prodoljit staryu - 2  |"<<endl<<"----------------------|"<<endl;
 		cin>>k;
+		cout<<"Nagmite ENTER";
 
 		if(k==2){
     	ifstream SUM1("sum.txt");
