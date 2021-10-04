@@ -21,6 +21,8 @@ int Again(){
 	cout<<"Zakonchit igry - 0"<<endl<<"----------------------------------------"<<endl;
 	cin>>x;
 	if(x>0) {
+		system("cls");
+	sum=0;
 	b=0;
 	}
 	else G=0;
@@ -118,6 +120,7 @@ int main(){
     	b =  atoi(bb.c_str());
 		}
 		else {
+			system("cls");
 			Word();
 			point=9;
 	        ofstream D("s.txt");
